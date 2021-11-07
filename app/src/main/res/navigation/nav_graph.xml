@@ -15,4 +15,9 @@
         android:name="com.besenior.kotlinadvancedcourse.ui.SingleNoteFragment"
         android:label="fragment_single_note"
         tools:layout="@layout/fragment_single_note" />
+    <fragment
+        android:id="@+id/planFragment"
+        android:name="com.besenior.kotlinadvancedcourse.ui.PlanFragment"
+        android:label="fragment_plan"
+        tools:layout="@layout/fragment_plan" />
 </navigation>
