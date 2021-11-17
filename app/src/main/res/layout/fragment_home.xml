@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="fragmentHome"
+            type="com.besenior.kotlinadvancedcourse.ui.HomeFragment" />
 
     </data>
 
@@ -19,6 +22,7 @@
             android:contentDescription="@string/add_note"
             android:src="@drawable/ic_baseline_add_24"
             app:backgroundTint="#4077FF"
+            android:onClick="@{(view)-> fragmentHome.fabOnClick(view)}"
             app:layout_constraintBottom_toTopOf="@id/guideline3"
             app:layout_constraintEnd_toEndOf="@id/guideline4"
             app:maxImageSize="30dp"
@@ -120,8 +124,10 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView6"
+                app:layout_constraintVertical_bias="0.0"
                 tools:listitem="@layout/upcoming_rv_items" />
 
             <TextView

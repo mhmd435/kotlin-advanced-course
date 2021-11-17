@@ -3,13 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProject/kotlinAdvancedCourse/app/src/main/res/drawable/colorsview_shape.xml" value="0.32407407407407407" />
+        <entry key="..\:/AndroidStudioProject/kotlinAdvancedCourse/app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.32407407407407407" />
+        <entry key="..\:/AndroidStudioProject/kotlinAdvancedCourse/app/src/main/res/drawable/ic_outline_push_pin_24.xml" value="0.32407407407407407" />
         <entry key="..\:/AndroidStudioProject/kotlinAdvancedCourse/app/src/main/res/drawable/ic_user.xml" value="0.3277777777777778" />
         <entry key="..\:/AndroidStudioProject/kotlinAdvancedCourse/app/src/main/res/layout/activity_main.xml" value="0.3338541666666667" />
         <entry key="..\:/AndroidStudioProject/kotlinAdvancedCourse/app/src/main/res/layout/fragment_home.xml" value="0.3338541666666667" />
         <entry key="..\:/AndroidStudioProject/kotlinAdvancedCourse/app/src/main/res/layout/fragment_plan.xml" value="0.3338541666666667" />
         <entry key="..\:/AndroidStudioProject/kotlinAdvancedCourse/app/src/main/res/layout/fragment_single_note.xml" value="0.33177083333333335" />
         <entry key="..\:/AndroidStudioProject/kotlinAdvancedCourse/app/src/main/res/layout/pinned_rv_items.xml" value="0.3307291666666667" />
+        <entry key="..\:/AndroidStudioProject/kotlinAdvancedCourse/app/src/main/res/layout/singlenote_appbar.xml" value="0.32871794871794874" />
+        <entry key="..\:/AndroidStudioProject/kotlinAdvancedCourse/app/src/main/res/layout/upcoming_rv_items.xml" value="0.3307291666666667" />
         <entry key="..\:/AndroidStudioProject/kotlinAdvancedCourse/app/src/main/res/menu/menu_bottom.xml" value="0.3338541666666667" />
+        <entry key="..\:/AndroidStudioProject/kotlinAdvancedCourse/app/src/main/res/menu/singlenote_menu.xml" value="0.32871794871794874" />
         <entry key="..\:/AndroidStudioProject/kotlinAdvancedCourse/app/src/main/res/menu/tabs.xml" value="0.3338541666666667" />
       </map>
     </option>

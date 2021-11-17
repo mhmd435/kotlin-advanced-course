@@ -15,6 +15,8 @@ class PinnedRVAdapter(private var data: ArrayList<NotesModel>) : RecyclerView.Ad
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PinnedRvViewHolder {
         val pinnedRvItemsBinding:PinnedRvItemsBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.pinned_rv_items,parent,false)
+
+
         return PinnedRvViewHolder(pinnedRvItemsBinding)
     }
 
