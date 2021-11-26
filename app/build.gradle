@@ -1,7 +1,10 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id("dagger.hilt.android.plugin")
+
 }
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdk 31
@@ -51,4 +54,25 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
 
     implementation 'com.github.ibrahimsn98:SmoothBottomBar:1.7.8'
+
+
+    // hilt
+    implementation("com.google.dagger:hilt-android:2.38.1")
+    kapt("com.google.dagger:hilt-android-compiler:2.38.1")
+
+    //room database
+    var roomVersion = "2.3.0"
+    implementation("androidx.room:room-runtime:$roomVersion")
+    annotationProcessor("androidx.room:room-compiler:$roomVersion")
+
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation("androidx.room:room-ktx:$roomVersion")
+
+    // To use Kotlin annotation processing tool (kapt)
+    kapt("androidx.room:room-compiler:$roomVersion")
+
+}
+
+kapt {
+    correctErrorTypes = true
 }

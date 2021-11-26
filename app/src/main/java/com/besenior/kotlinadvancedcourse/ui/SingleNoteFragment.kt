@@ -6,13 +6,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModel
 import com.besenior.kotlinadvancedcourse.R
 import com.besenior.kotlinadvancedcourse.databinding.FragmentSingleNoteBinding
+import com.besenior.kotlinadvancedcourse.viewmodel.AppViewModel
 
 class SingleNoteFragment : Fragment() {
     private lateinit var binding: FragmentSingleNoteBinding
 
     private var savedColor = "#64C8FD"
+
+    private val viewModel:AppViewModel by viewModels()
 
 
 
@@ -21,6 +26,10 @@ class SingleNoteFragment : Fragment() {
         binding.singleNote = this
         // Inflate the layout for this fragment
         return binding.root
+    }
+
+    fun onAddNoteClick(view: View){
+
     }
 
     fun onColorViewClick(check: View){

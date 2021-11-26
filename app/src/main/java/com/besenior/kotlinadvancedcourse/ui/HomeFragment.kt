@@ -1,6 +1,7 @@
 package com.besenior.kotlinadvancedcourse.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,9 +13,17 @@ import com.besenior.kotlinadvancedcourse.adapters.PinnedRVAdapter
 import com.besenior.kotlinadvancedcourse.adapters.UpcomingRvAdapter
 import com.besenior.kotlinadvancedcourse.databinding.FragmentHomeBinding
 import com.besenior.kotlinadvancedcourse.models.NotesModel
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.ArrayList
+import javax.inject.Inject
+import javax.inject.Named
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
+
+    @Inject
+    @Named("car")
+    lateinit var name:String
 
     private lateinit var binding:FragmentHomeBinding;
 
@@ -22,6 +31,8 @@ class HomeFragment : Fragment() {
 
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_home,container,false)
         binding.fragmentHome = this
+
+        Log.e("TAG", "onCreateView: $name")
 
         setupPinnedRecyclerview()
         setupUpcomingRecyclerview()

@@ -95,6 +95,7 @@
             android:focusable="true"
             app:backgroundTint="#FFFFFF"
             app:elevation="15dp"
+            android:onClick="@{(view) -> SingleNote.onAddNoteClick(view)}"
             app:layout_anchor="@id/ColorChoosebottomappbar"
             app:maxImageSize="30dp"
             app:srcCompat="@drawable/ic_baseline_check_24"
