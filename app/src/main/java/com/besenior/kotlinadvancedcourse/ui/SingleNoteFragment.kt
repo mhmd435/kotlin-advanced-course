@@ -8,10 +8,17 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
+import androidx.navigation.Navigation
 import com.besenior.kotlinadvancedcourse.R
 import com.besenior.kotlinadvancedcourse.databinding.FragmentSingleNoteBinding
+import com.besenior.kotlinadvancedcourse.models.NotesModel
 import com.besenior.kotlinadvancedcourse.viewmodel.AppViewModel
+import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class SingleNoteFragment : Fragment() {
     private lateinit var binding: FragmentSingleNoteBinding
 
@@ -29,6 +36,26 @@ class SingleNoteFragment : Fragment() {
     }
 
     fun onAddNoteClick(view: View){
+        binding.apply {
+            if (this.titleEdtx.text.isNullOrBlank()){
+                Snackbar.make(this.mainCoord, "Pls Enter Your Title...", Snackbar.LENGTH_SHORT).show()
+            }else{
+                if (this.noteEdtx.text.isNullOrBlank()){
+                    Snackbar.make(this.mainCoord, "Pls Enter Your Note...", Snackbar.LENGTH_SHORT).show()
+                }else{
+                    val title = this.titleEdtx.text.toString()
+                    val note = this.noteEdtx.text.toString()
+                    val color = savedColor
+
+                    val noteModel = NotesModel(title,note,color,false)
+                    viewModel.insertNoteToDatabase(noteModel)
+
+
+                    Navigation.findNavController(view).navigate(R.id.action_singleNoteFragment_to_homeFragment)
+
+                }
+            }
+        }
 
     }
 

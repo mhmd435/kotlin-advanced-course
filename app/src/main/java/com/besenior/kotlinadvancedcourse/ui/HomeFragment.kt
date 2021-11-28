@@ -21,18 +21,12 @@ import javax.inject.Named
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
 
-    @Inject
-    @Named("car")
-    lateinit var name:String
-
     private lateinit var binding:FragmentHomeBinding;
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_home,container,false)
         binding.fragmentHome = this
-
-        Log.e("TAG", "onCreateView: $name")
 
         setupPinnedRecyclerview()
         setupUpcomingRecyclerview()
@@ -43,29 +37,29 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupPinnedRecyclerview() {
-        val data:ArrayList<NotesModel> = ArrayList()
-        data.add(NotesModel("note 1","this is note1"))
-        data.add(NotesModel("note 2","this is note2"))
-        data.add(NotesModel("note 3","this is note3"))
-
-        if (data.isEmpty())
-            binding.pinnedCon.visibility = View.GONE
-        else
-            binding.pinnedCon.visibility = View.VISIBLE
-
-        binding.pinnedRv.adapter = PinnedRVAdapter(data)
+//        val data:ArrayList<NotesModel> = ArrayList()
+//        data.add(NotesModel("note 1","this is note1"))
+//        data.add(NotesModel("note 2","this is note2"))
+//        data.add(NotesModel("note 3","this is note3"))
+//
+//        if (data.isEmpty())
+//            binding.pinnedCon.visibility = View.GONE
+//        else
+//            binding.pinnedCon.visibility = View.VISIBLE
+//
+//        binding.pinnedRv.adapter = PinnedRVAdapter(data)
 
 
     }
 
     private fun setupUpcomingRecyclerview() {
-        val data:ArrayList<NotesModel> = ArrayList()
-        data.add(NotesModel("note 1","this is note1"))
-        data.add(NotesModel("note 2","this is note2"))
-        data.add(NotesModel("note 3","this is note3"))
-
-        binding.upcomingRv.adapter = UpcomingRvAdapter(data)
-
+//        val data:ArrayList<NotesModel> = ArrayList()
+//        data.add(NotesModel("note 1","this is note1"))
+//        data.add(NotesModel("note 2","this is note2"))
+//        data.add(NotesModel("note 3","this is note3"))
+//
+//        binding.upcomingRv.adapter = UpcomingRvAdapter(data)
+//
 
     }
 
