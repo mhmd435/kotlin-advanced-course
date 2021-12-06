@@ -7,12 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import com.besenior.kotlinadvancedcourse.R
 import com.besenior.kotlinadvancedcourse.adapters.PinnedRVAdapter
 import com.besenior.kotlinadvancedcourse.adapters.UpcomingRvAdapter
 import com.besenior.kotlinadvancedcourse.databinding.FragmentHomeBinding
 import com.besenior.kotlinadvancedcourse.models.NotesModel
+import com.besenior.kotlinadvancedcourse.room.entities.NoteEntity
+import com.besenior.kotlinadvancedcourse.viewmodel.AppViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.ArrayList
 import javax.inject.Inject
@@ -20,6 +23,8 @@ import javax.inject.Named
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
+
+    private val viewModel: AppViewModel by viewModels()
 
     private lateinit var binding:FragmentHomeBinding;
 
@@ -53,6 +58,23 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupUpcomingRecyclerview() {
+        viewModel.liveData.observe(viewLifecycleOwner){ listData ->
+
+            val data: ArrayList<NoteEntity> = ArrayList()
+            listData.forEach{
+                if (!it.notesModel.pinned){
+                    data.add(it)
+                }
+            }
+
+            if (data.isEmpty())
+                binding.textView3.visibility = View.VISIBLE
+            else
+                binding.textView3.visibility = View.GONE
+
+            binding.upcomingRv.adapter = UpcomingRvAdapter(data)
+
+        }
 //        val data:ArrayList<NotesModel> = ArrayList()
 //        data.add(NotesModel("note 1","this is note1"))
 //        data.add(NotesModel("note 2","this is note2"))
