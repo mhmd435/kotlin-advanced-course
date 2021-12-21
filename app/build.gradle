@@ -61,7 +61,7 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:2.38.1")
 
     //room database
-    var roomVersion = "2.3.0"
+    var roomVersion = "2.4.0-rc01"
     implementation("androidx.room:room-runtime:$roomVersion")
     annotationProcessor("androidx.room:room-compiler:$roomVersion")
 
