@@ -112,27 +112,48 @@ class SingleNoteFragment : Fragment() {
     }
 
     fun onAddNoteClick(view: View){
-        binding.apply {
-            if (this.titleEdtx.text.isNullOrBlank()){
-                Snackbar.make(this.mainCoord, "Pls Enter Your Title...", Snackbar.LENGTH_SHORT).show()
-            }else{
-                if (this.noteEdtx.text.isNullOrBlank()){
-                    Snackbar.make(this.mainCoord, "Pls Enter Your Note...", Snackbar.LENGTH_SHORT).show()
+        if (isUpdating){
+            binding.apply {
+                if (this.titleEdtx.text.isNullOrBlank()){
+                    Snackbar.make(this.mainCoord, "Pls Enter Your Title...", Snackbar.LENGTH_SHORT).show()
                 }else{
-                    val title = this.titleEdtx.text.toString()
-                    val note = this.noteEdtx.text.toString()
-                    val color = savedColor
+                    if (this.noteEdtx.text.isNullOrBlank()){
+                        Snackbar.make(this.mainCoord, "Pls Enter Your Note...", Snackbar.LENGTH_SHORT).show()
+                    }else{
+                        noteEntity.notesModel.title = this.titleEdtx.text.toString()
+                        noteEntity.notesModel.note = this.noteEdtx.text.toString()
+                        noteEntity.notesModel.color = savedColor
+                        noteEntity.notesModel.pinned = pinned
 
-                    val noteModel = NotesModel(title,note,color,pinned)
-                    viewModel.insertNoteToDatabase(noteModel)
+                        viewModel.UpdateNoteDatabase(noteEntity)
+
+                        Navigation.findNavController(view).navigate(R.id.action_singleNoteFragment_to_homeFragment)
+
+                    }
+                }
+            }
+        }else{
+            binding.apply {
+                if (this.titleEdtx.text.isNullOrBlank()){
+                    Snackbar.make(this.mainCoord, "Pls Enter Your Title...", Snackbar.LENGTH_SHORT).show()
+                }else{
+                    if (this.noteEdtx.text.isNullOrBlank()){
+                        Snackbar.make(this.mainCoord, "Pls Enter Your Note...", Snackbar.LENGTH_SHORT).show()
+                    }else{
+                        val title = this.titleEdtx.text.toString()
+                        val note = this.noteEdtx.text.toString()
+                        val color = savedColor
+
+                        val noteModel = NotesModel(title,note,color,pinned)
+                        viewModel.insertNoteToDatabase(noteModel)
 
 
-                    Navigation.findNavController(view).navigate(R.id.action_singleNoteFragment_to_homeFragment)
+                        Navigation.findNavController(view).navigate(R.id.action_singleNoteFragment_to_homeFragment)
 
+                    }
                 }
             }
         }
-
     }
 
     fun onColorViewClick(check: View){
@@ -168,6 +189,16 @@ class SingleNoteFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         mainActivity = context as MainActivity
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        super.onPrepareOptionsMenu(menu)
+
+        val item = menu.findItem(R.id.pinitem)
+        if (pinned)
+            item.icon = ContextCompat.getDrawable(requireActivity(),R.drawable.baseline_push_pin_black_24dp)
+        else
+            item.icon = ContextCompat.getDrawable(requireActivity(),R.drawable.ic_outline_push_pin_24)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

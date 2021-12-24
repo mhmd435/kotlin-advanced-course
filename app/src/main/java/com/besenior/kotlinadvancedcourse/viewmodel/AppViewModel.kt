@@ -32,6 +32,12 @@ class AppViewModel @Inject constructor(
         }
     }
 
+    fun UpdateNoteDatabase(noteEntity: NoteEntity) {
+        viewModelScope.launch (Dispatchers.IO){
+            repository.UpdateNote(noteEntity)
+        }
+    }
+
     fun getAllDataFromDb(){
         viewModelScope.launch (Dispatchers.IO){
             repository.getAllData().collect {
