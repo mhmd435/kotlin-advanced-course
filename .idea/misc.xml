@@ -18,6 +18,9 @@
         <entry key="..\:/AndroidStudioProject/kotlinAdvancedCourse/app/src/main/res/menu/singlenote_menu.xml" value="0.32871794871794874" />
         <entry key="..\:/AndroidStudioProject/kotlinAdvancedCourse/app/src/main/res/menu/tabs.xml" value="0.3338541666666667" />
         <entry key="app/src/main/res/layout/fragment_single_note.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/upcoming_rv_items.xml" value="0.45" />
+        <entry key="app/src/main/res/menu/actions.xml" value="0.2828125" />
+        <entry key="app/src/main/res/menu/menu_bottom.xml" value="0.2828125" />
         <entry key="app/src/main/res/menu/singlenote_menu.xml" value="0.29739583333333336" />
       </map>
     </option>

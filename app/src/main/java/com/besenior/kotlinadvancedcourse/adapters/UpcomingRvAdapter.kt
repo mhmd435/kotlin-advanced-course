@@ -34,6 +34,9 @@ class UpcomingRvAdapter(private val model: ArrayList<NoteEntity>,private var lis
             binding.upcomingCard.setOnClickListener {
                 listener.onItemClickListener(noteEntity)
             }
+            binding.imageFilterButton2.setOnClickListener {
+                listener.onMenuItemClickListener(it,noteEntity)
+            }
             binding.executePendingBindings()
         }
     }

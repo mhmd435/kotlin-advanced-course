@@ -38,6 +38,12 @@ class AppViewModel @Inject constructor(
         }
     }
 
+    fun deleteNote(noteEntity: NoteEntity) {
+        viewModelScope.launch (Dispatchers.IO){
+            repository.deleteNote(noteEntity)
+        }
+    }
+
     fun getAllDataFromDb(){
         viewModelScope.launch (Dispatchers.IO){
             repository.getAllData().collect {
